@@ -3,7 +3,7 @@ import studentsReducer from './students_reducer';
 
 
 const rootReducer = combineReducers({
-    studentsReducer
+    students: studentsReducer
 });
 
 export default rootReducer;

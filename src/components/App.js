@@ -1,6 +1,6 @@
 import React from 'react';
+import Students from './students/students';
 
-// import Students from '../students/students';
 
 import './App.css';
 
@@ -9,7 +9,8 @@ function App() {
     <div className="App">
       Hello, welcome
 
-      {/* <Students /> */}
+          <Students />
+
     </div>
   );
 }

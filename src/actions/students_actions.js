@@ -7,7 +7,7 @@ const allStudents = (students) => ({
     students,
 });
 
-export default fetchStudents = () => dispatch => (
+export const fetchStudents = () => dispatch => (
     StudentsAPI.fetchAllStudents()
     .then(students => dispatch(allStudents(students)))
 );

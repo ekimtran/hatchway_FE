@@ -5,7 +5,7 @@ const studentsReducer = (state={}, action) => {
 
     switch(action.type) {
         case ALL_STUDENTS:
-            return Object.assign({}, state, action.students);
+            return Object.assign({}, state, action.students.data.students);
         default:
             return state;
     }
