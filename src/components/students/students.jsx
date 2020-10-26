@@ -18,7 +18,7 @@ const Students = () => {
     <div className='students'>
         <ul>
           {students.map((student, i) => (
-              <li className='student-list' key={i}>
+              <li key={i}>
                   <Student student={student} />
               </li>
           ))}
