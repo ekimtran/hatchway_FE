@@ -7,8 +7,9 @@ import Student from './student';
 
 const Students = () => {
     const dispatch = useDispatch();
-
     const students = useSelector(state => Object.values(state.students));
+
+    const [displayGrades, setDisplayGrades] = useState(false);
 
   useEffect(() => {
     dispatch(fetchStudents());
@@ -19,7 +20,11 @@ const Students = () => {
         <ul>
           {students.map((student, i) => (
               <li key={i}>
-                  <Student student={student} />
+                  <Student 
+                    student={student} 
+                    displayGrades={displayGrades}
+                    setDisplayGrades={setDisplayGrades}
+                     />
               </li>
           ))}
         </ul>
