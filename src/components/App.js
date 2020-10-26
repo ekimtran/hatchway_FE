@@ -1,6 +1,6 @@
 import React from 'react';
 import Students from './students/students';
-
+import "./reset.css";
 
 import './App.css';
 

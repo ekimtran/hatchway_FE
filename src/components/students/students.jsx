@@ -15,10 +15,10 @@ const Students = () => {
   }, []);
 
   return (
-    <div>
+    <div className='students'>
         <ul>
           {students.map((student, i) => (
-              <li key={i}>
+              <li className='student-list' key={i}>
                   <Student student={student} />
               </li>
           ))}

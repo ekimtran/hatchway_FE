@@ -12,14 +12,15 @@ const Student = ({student}) => {
     
     return (
         <div className='student'>
-            <img src={pic} alt=""/>
+            <div className='circle'>
+                <img src={pic} alt=""/>
+            </div>
             <div className='student-info'>
                 <h2>{firstName}</h2>
-                <div>{email}</div>
-                <div>{company}</div>
-                <div>{skill}</div>
-                <div>{grades[0]}</div>
-    <div>{avgGrades()}</div>
+                <div>Email: {email}</div>
+                <div>Company: {company}</div>
+                <div>Skill: {skill}</div>
+                 <div>Average: {avgGrades()}%</div>
             </div>
         </div>
     )
