@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
 const Student = ({student}) => {
+
+    const [displayGrades, setDisplayGrades] = useState(false);
 
     const { firstName, email, company, skill, grades, pic } = student;
 
@@ -8,6 +10,16 @@ const Student = ({student}) => {
         let sum = 0;
         grades.map(el => sum += parseInt(el));
         return sum / grades.length;
+    }
+
+    const showGrades = (e) => {
+        e.preventDefault();
+        setDisplayGrades(true);
+    }
+
+    const closeGrades = (e) => {
+        e.preventDefault();
+        setDisplayGrades(false);
     }
     
     return (
