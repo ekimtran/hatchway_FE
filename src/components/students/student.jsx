@@ -13,8 +13,6 @@ const Student = ({ student }) => {
   };
 
 
-
-
   return (
     <div className='student'>
       <div className='circle'>

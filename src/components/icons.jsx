@@ -6,7 +6,7 @@ const PlusIcons = ({ displayGrades, setDisplayGrades }) => {
     };
 
     return (
-      <div onClick={closeData}>
+      <div className='expand-btn' onClick={closeData}>
         <i className='fas fa-plus'></i>
       </div>
     );
@@ -19,7 +19,7 @@ const MinusIcons = ({ displayGrades, setDisplayGrades }) => {
     };
 
     return (
-      <div onClick={openData}>
+      <div onClick={openData} className='expand-btn'>
         <i className='fas fa-minus'></i>
       </div>
     );
