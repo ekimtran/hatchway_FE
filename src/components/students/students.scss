@@ -1,7 +1,6 @@
 .students {
      width: 60%;
-     height: 80%;
-    //  border: 1px solid rgb(173, 173, 173);
+     height: 85%;
      box-shadow: 2px 2px 2px 2px rgb(223, 223, 223);
      border-radius: 10px;
      margin-left: 20%;
@@ -9,7 +8,7 @@
 
     ul {
         list-style:none;
-        max-height: 92%;
+        max-height: 80%;
         margin:0;
         overflow:auto;
         padding:0;
@@ -19,7 +18,27 @@
             border-bottom: 1px solid rgb(223, 223, 223) ;
             padding: 2%;
         }
+
     }
+}
+
+.name-searchbar {
+    width: 100%;
+    box-shadow: 1px 1px rgb(223, 223, 223);
+    border-radius: 5px;
+    background-color: whitesmoke;
+    border: none;
+    padding-top: 2%;
+}
+
+#name-input {
+    width: 90%;
+    height: 100%;
+    border: none;
+    background-color: whitesmoke;
+    // padding-left: 1%;
+    font-size: 1.3rem;
+    color: rgb(146, 146, 146);
 }
 
 .student {
