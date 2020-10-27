@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MinusIcons = ({ displayGrades, setDisplayGrades }) => {
+const PlusIcons = ({ displayGrades, setDisplayGrades }) => {
     const closeData = () => {
         setDisplayGrades(!displayGrades);
     };
@@ -13,7 +13,7 @@ const MinusIcons = ({ displayGrades, setDisplayGrades }) => {
 };
 
 
-const PlusIcons = ({ displayGrades, setDisplayGrades }) => {
+const MinusIcons = ({ displayGrades, setDisplayGrades }) => {
     const openData = () => {
       setDisplayGrades(!displayGrades);
     };

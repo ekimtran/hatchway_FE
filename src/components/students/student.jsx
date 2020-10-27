@@ -13,6 +13,8 @@ const Student = ({ student }) => {
   };
 
 
+
+
   return (
     <div className='student'>
       <div className='circle'>
@@ -24,9 +26,17 @@ const Student = ({ student }) => {
         <div>Company: {company}</div>
         <div>Skill: {skill}</div>
         <div>Average: {avgGrades()}%</div>
+        <div className='grade-list'>
+          {displayGrades &&
+            grades.map((grade, i) => (
+              <div>
+                Test {i + 1}: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{grade}%
+              </div>
+            ))}
+        </div>
       </div>
-      <div className='display-grades'>
-        {displayGrades ? (
+      <div className='display-icons'>
+        {!displayGrades ? (
           <PlusIcons
             displayGrades={displayGrades}
             setDisplayGrades={setDisplayGrades}
