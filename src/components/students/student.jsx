@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { MinusIcons, PlusIcons } from "../icons";
 
 const Student = ({ student }) => {
-  const [displayGrades, setDisplayGrades] = useState(true);
+  const [displayGrades, setDisplayGrades] = useState(false);
 
   const { firstName, email, company, skill, grades, pic } = student;
 
@@ -11,12 +12,6 @@ const Student = ({ student }) => {
     return sum / grades.length;
   };
 
-  const display = () => {
-    // e.preventDefault();
-    setDisplayGrades(!displayGrades);
-    // setDisplayGrades(!displayGrades);
-      // .then(() => setDisplayGrades(!displayGrades));
-  };
 
   return (
     <div className='student'>
@@ -31,14 +26,16 @@ const Student = ({ student }) => {
         <div>Average: {avgGrades()}%</div>
       </div>
       <div className='display-grades'>
-        {!displayGrades ? (
-          <h2 onClick={display}>
-            <i className='fas fa-plus'></i>
-          </h2>
+        {displayGrades ? (
+          <PlusIcons
+            displayGrades={displayGrades}
+            setDisplayGrades={setDisplayGrades}
+          />
         ) : (
-          <h2 onClick={display}>
-            <i className='fas fa-minus'></i>
-          </h2>
+          <MinusIcons
+            displayGrades={displayGrades}
+            setDisplayGrades={setDisplayGrades}
+          />
         )}
       </div>
       {console.log(displayGrades)}
