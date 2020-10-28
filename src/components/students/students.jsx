@@ -20,6 +20,9 @@ const Students = () => {
     setSearchStudent(e.target.value.substr(0,20));
   }
 
+  const filteredStudents = students.filter(student => {
+    return student.firstName.toLowerCase().indexOf(searchStudent) !== -1;
+  })
   return (
     <div className='students'>
         <div className='name-searchbar'>
@@ -28,10 +31,9 @@ const Students = () => {
             type="text" 
             id='name-input' 
             placeholder='Search by name'/>
-            {console.log(searchStudent)}
         </div>
         <ul>
-          {students.map((student, i) => (
+          {filteredStudents.map((student, i) => (
               <li key={i}>
                   <Student 
                     student={student} 
