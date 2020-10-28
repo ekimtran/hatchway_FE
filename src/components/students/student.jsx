@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import { MinusIcons, PlusIcons } from "../icons";
 
 const Student = ({ student }) => {
-  const [displayGrades, setDisplayGrades] = useState(false);
+  const [ displayGrades, setDisplayGrades ] = useState(false);
 
-  const { firstName, email, company, skill, grades, pic } = student;
+  const { 
+    firstName, 
+    email, 
+    company, 
+    skill, 
+    grades, 
+    pic, 
+    lastName } = student;
 
   const avgGrades = () => {
     let sum = 0;
@@ -19,7 +26,7 @@ const Student = ({ student }) => {
         <img src={pic} alt='' />
       </div>
       <div className='student-info'>
-        <h2>{firstName}</h2>
+        <h2>{firstName}&nbsp;{lastName}</h2>
         <div>Email: {email}</div>
         <div>Company: {company}</div>
         <div>Skill: {skill}</div>

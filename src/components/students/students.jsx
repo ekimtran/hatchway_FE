@@ -21,8 +21,13 @@ const Students = () => {
   }
 
   const filteredStudents = students.filter(student => {
-    return student.firstName.toLowerCase().indexOf(searchStudent) !== -1;
+    const first = student.firstName.toLowerCase().indexOf(searchStudent) !== -1;
+    const last = student.lastName.toLowerCase().indexOf(searchStudent) !== -1;
+    const full = `${student.firstName.toLowerCase()} ${student.lastName.toLowerCase()}`
+    const searchFull = full.indexOf(searchStudent) !== -1;
+    return first || last || searchFull;
   })
+
   return (
     <div className='students'>
         <div className='name-searchbar'>
