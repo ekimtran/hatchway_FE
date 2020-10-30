@@ -11,6 +11,7 @@ const Students = () => {
 
     const [ displayGrades, setDisplayGrades ] = useState(false);
     const [ searchStudent, setSearchStudent ] = useState('');
+    // const [ ]
 
   useEffect(() => {
     dispatch(fetchStudents());
@@ -27,6 +28,10 @@ const Students = () => {
     const searchFull = full.indexOf(searchStudent) !== -1;
     return first || last || searchFull;
   })
+
+  const addTagStudents = (studentTags, id) => {
+    return Object.assign(students[id], {tags: studentTags })
+  }
 
   return (
     <div className='students'>

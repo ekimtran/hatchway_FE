@@ -3,6 +3,7 @@ import { MinusIcons, PlusIcons } from "../icons";
 
 const Student = ({ student }) => {
   const [ displayGrades, setDisplayGrades ] = useState(false);
+  const [ studentTags, setTags ] = useState([]);
 
   const { 
     firstName, 
@@ -19,6 +20,10 @@ const Student = ({ student }) => {
     return sum / grades.length;
   };
 
+  const addTags = (e) => {
+    setTags([...studentTags, e.target.value])
+  }
+
 
   return (
     <div className='student'>
@@ -26,7 +31,9 @@ const Student = ({ student }) => {
         <img src={pic} alt='' />
       </div>
       <div className='student-info'>
-        <h2>{firstName}&nbsp;{lastName}</h2>
+        <h2>
+          {firstName}&nbsp;{lastName}
+        </h2>
         <div>Email: {email}</div>
         <div>Company: {company}</div>
         <div>Skill: {skill}</div>
@@ -38,6 +45,28 @@ const Student = ({ student }) => {
                 Test {i + 1}: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{grade}%
               </div>
             ))}
+        </div>
+        <div>
+          {studentTags && 
+            studentTags.map((tag, i) => (
+              <div>
+                {tag}
+              </div>
+            ))
+          }
+        </div>
+        <div>
+          {displayGrades && (
+            // <div className='name-searchbar'>
+            //   <input
+            //     onClick={addTags}
+            //     type='text'
+            //     id='name-input'
+            //     placeholder='Search by name'
+            //   />
+            // </div>
+            <form action=""></form>
+          )}
         </div>
       </div>
       <div className='display-icons'>
@@ -53,7 +82,7 @@ const Student = ({ student }) => {
           />
         )}
       </div>
-      {console.log(displayGrades)}
+      {console.log(studentTags)}
     </div>
   );
 };
