@@ -8,10 +8,13 @@ import Student from './student';
 const Students = () => {
     const dispatch = useDispatch();
     const students = useSelector(state => Object.values(state.students));
+    const studentsTags = students.map(student => Object.assign({tags: []}, student));
+
 
     const [ displayGrades, setDisplayGrades ] = useState(false);
     const [ searchStudent, setSearchStudent ] = useState('');
-    // const [ ]
+    const [ searchTags, setSearchTags ] = useState('');
+    const [ allStudentsTags, setAllTags ] = useState({});
 
   useEffect(() => {
     dispatch(fetchStudents());
@@ -30,29 +33,41 @@ const Students = () => {
   })
 
   const addTagStudents = (studentTags, id) => {
-    return Object.assign(students[id], {tags: studentTags })
+    const currentTags = Object.assign({}, allStudentsTags, studentsTags);
+    currentTags[id].tags.push(studentTags)
+    setAllTags(currentTags);
+    console.log(currentTags);
   }
+
+  // const filteredTags = filteredStudents.filter(student => {
+  //   const tags = student.tags.toLowerCase().indexOf(searchTags) !== -1;
+  //   return tags;
+  // })
 
   return (
     <div className='students'>
-        <div className='name-searchbar'>
-          <input 
-            onChange={updateSearch}
-            type="text" 
-            id='name-input' 
-            placeholder='Search by name'/>
-        </div>
-        <ul>
-          {filteredStudents.map((student, i) => (
-              <li key={i}>
-                  <Student 
-                    student={student} 
-                    displayGrades={displayGrades}
-                    setDisplayGrades={setDisplayGrades}
-                     />
-              </li>
-          ))}
-        </ul>
+      {console.log(studentsTags)}
+      <div className='name-searchbar'>
+        <input
+          onChange={updateSearch}
+          type='text'
+          id='name-input'
+          placeholder='Search by name'
+        />
+      </div>
+      <ul>
+        {filteredStudents.map((student, i) => (
+          <li key={i}>
+            <Student
+              student={student}
+              displayGrades={displayGrades}
+              setDisplayGrades={setDisplayGrades}
+              addTagStudents={addTagStudents}
+            />
+          </li>
+        ))}
+      </ul>
+      {/* {console.log(studentsTags)} */}
     </div>
   );
 

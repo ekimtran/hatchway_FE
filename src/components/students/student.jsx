@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { MinusIcons, PlusIcons } from "../icons";
 
-const Student = ({ student }) => {
+const Student = ({ student, addTagStudents }) => {
   const [ displayGrades, setDisplayGrades ] = useState(false);
-  const [ studentTags, setTags ] = useState([]);
+  const [ studentTags, setStudentTags ] = useState('');
 
   const { 
     firstName, 
@@ -12,7 +12,10 @@ const Student = ({ student }) => {
     skill, 
     grades, 
     pic, 
-    lastName } = student;
+    lastName,
+    id,
+    tags
+   } = student;
 
   const avgGrades = () => {
     let sum = 0;
@@ -21,7 +24,12 @@ const Student = ({ student }) => {
   };
 
   const addTags = (e) => {
-    setTags([...studentTags, e.target.value])
+    setStudentTags(e.target.value)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    addTagStudents(studentTags, id-1);
   }
 
 
@@ -47,25 +55,14 @@ const Student = ({ student }) => {
             ))}
         </div>
         <div>
-          {studentTags && 
-            studentTags.map((tag, i) => (
-              <div>
-                {tag}
-              </div>
-            ))
-          }
+          {tags && tags.map((tag, i) => <div>{tag}</div>)}
         </div>
         <div>
           {displayGrades && (
-            // <div className='name-searchbar'>
-            //   <input
-            //     onClick={addTags}
-            //     type='text'
-            //     id='name-input'
-            //     placeholder='Search by name'
-            //   />
-            // </div>
-            <form action=""></form>
+            <form onSubmit={handleSubmit}>
+              <input onChange={addTags} placeholder='Hello' />
+              <button type='submit'>Add Tag</button>
+            </form>
           )}
         </div>
       </div>
@@ -82,7 +79,8 @@ const Student = ({ student }) => {
           />
         )}
       </div>
-      {console.log(studentTags)}
+      {/* {console.log(tags)} */}
+      {/* {console.log(studentTags)} */}
     </div>
   );
 };
