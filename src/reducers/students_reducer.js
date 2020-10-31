@@ -4,8 +4,12 @@ const studentsReducer = (state={}, action) => {
     Object.freeze(state);
 
     switch(action.type) {
+        //to merge tags object to already made state;
         case ALL_STUDENTS:
-            return Object.assign({}, state, action.students.data.students);
+            const data = {};
+            const students = action.students.data.students;
+            students.map((el, i) => data[i] = Object.assign(el, {tags: []}));
+            return Object.assign({}, state, data);
         default:
             return state;
     }

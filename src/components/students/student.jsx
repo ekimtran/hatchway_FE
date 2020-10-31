@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MinusIcons, PlusIcons } from "../icons";
 
 const Student = ({ student, addTagStudents }) => {
@@ -55,7 +55,7 @@ const Student = ({ student, addTagStudents }) => {
             ))}
         </div>
         <div>
-          {tags && tags.map((tag, i) => <div>{tag}</div>)}
+          {tags && tags.map((tag, i) => <li key={i}>{tag}</li>)}
         </div>
         <div>
           {displayGrades && (
@@ -79,8 +79,6 @@ const Student = ({ student, addTagStudents }) => {
           />
         )}
       </div>
-      {/* {console.log(tags)} */}
-      {/* {console.log(studentTags)} */}
     </div>
   );
 };
